@@ -1,5 +1,25 @@
 #!/bin/sh
 
-system_type=$(uname -s)
+system=$(lsb_release -si)
 
-echo $system_type
+echo $system
+
+case $system in
+Debian)
+    sudo apt update
+    sudo apt install -y \
+        curl \
+        git \
+        gnupg2 \
+        htop \
+        jq \
+        neovim \
+        python3 \
+        python3-pip \
+        python3-venv \
+        tmux \
+        wget \
+        zsh
+    ;;
+
+esac
