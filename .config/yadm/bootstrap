@@ -1,0 +1,5 @@
+#!/bin/sh
+
+system_type=$(uname -s)
+
+echo $system_type
