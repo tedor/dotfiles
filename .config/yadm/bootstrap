@@ -8,18 +8,16 @@ case $system in
 Debian)
     sudo apt update
     sudo apt install -y \
-        curl \
-        git \
-        gnupg2 \
-        htop \
-        jq \
-        neovim \
-        python3 \
-        python3-pip \
-        python3-venv \
-        tmux \
-        wget \
-        zsh
+        curl
+
+    # Fisher package manager
+    fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+    yadm restore -- ~/.config/fish/fish_plugins
+    fish -c 'fisher update'
+
+    # Starship prompt
+    curl -sS https://starship.rs/install.sh | sh
+
     ;;
 
 esac
